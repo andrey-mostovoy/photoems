@@ -6,3 +6,4 @@
 .realsync
 .lsyncd.conf
 composer.lock
+.#*

@@ -69,7 +69,7 @@ class Image extends AbstractImage
         $this->metadata = $metadata;
         $this->detectColorspaceConversionSupport();
         $this->imagick = $imagick;
-        if (static::$supportsColorspaceConversion) {
+        if (self::$supportsColorspaceConversion) {
             $this->setColorspace($palette);
         }
         $this->palette = $palette;
@@ -571,7 +571,7 @@ class Image extends AbstractImage
      */
     public function usePalette(PaletteInterface $palette)
     {
-        if (!isset(static::$colorspaceMapping[$palette->name()])) {
+        if (!isset(self::$colorspaceMapping[$palette->name()])) {
             throw new InvalidArgumentException(sprintf('The palette %s is not supported by Imagick driver', $palette->name()));
         }
 
@@ -579,7 +579,7 @@ class Image extends AbstractImage
             return $this;
         }
 
-        if (!static::$supportsColorspaceConversion) {
+        if (!self::$supportsColorspaceConversion) {
             throw new RuntimeException('Your version of Imagick does not support colorspace conversions.');
         }
 
@@ -814,12 +814,12 @@ class Image extends AbstractImage
             PaletteInterface::PALETTE_GRAYSCALE => \Imagick::IMGTYPE_GRAYSCALEMATTE,
         );
 
-        if (!isset(static::$colorspaceMapping[$palette->name()])) {
+        if (!isset(self::$colorspaceMapping[$palette->name()])) {
             throw new InvalidArgumentException(sprintf('The palette %s is not supported by Imagick driver', $palette->name()));
         }
 
         $this->imagick->setType($typeMapping[$palette->name()]);
-        $this->imagick->setColorspace(static::$colorspaceMapping[$palette->name()]);
+        $this->imagick->setColorspace(self::$colorspaceMapping[$palette->name()]);
         $this->palette = $palette;
     }
 
@@ -831,11 +831,11 @@ class Image extends AbstractImage
      */
     private function detectColorspaceConversionSupport()
     {
-        if (null !== static::$supportsColorspaceConversion) {
-            return static::$supportsColorspaceConversion;
+        if (null !== self::$supportsColorspaceConversion) {
+            return self::$supportsColorspaceConversion;
         }
 
-        return static::$supportsColorspaceConversion = method_exists('Imagick', 'setColorspace');
+        return self::$supportsColorspaceConversion = method_exists('Imagick', 'setColorspace');
     }
 
     /**

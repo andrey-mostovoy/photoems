@@ -190,7 +190,7 @@ class MainLandingPage extends AbstractWebPage {
 
         $previewPath = Image::getPreviewFile($image);
 
-        $Imagine = new CustomImage();
+        $Imagine = new CustomImagine();
         $Image = $Imagine->open($previewPath);
 
         if (!$this->applyEffect($Image, $effect, $_POST['additional'])) {

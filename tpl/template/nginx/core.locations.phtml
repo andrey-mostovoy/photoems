@@ -1,0 +1,42 @@
+<?php
+use Core\TemplateBuilder\Nginx\NginxTemplateBuilder;
+/** @var NginxTemplateBuilder $this */
+?>
+
+location /static/ {
+    root $_application_root;
+}
+
+location /uploads/ {
+    root "<?= APPLICATION_ROOT ?>../";
+}
+
+# все аякс запросы сюда
+location /service/ {
+    if ($request_method !~ POST) {
+        return 403;
+    }
+    set $_fastcgi_script_name run_servicepage.php;
+    fastcgi_pass <?= $this->fastcgi ?>;
+
+    include "<?= $this->includeFastCgiConfPath ?>";
+}
+
+# health check from marathon
+location /_health/ {
+    fastcgi_pass <?= $this->fastcgi ?>;
+    fastcgi_param page Core\Health\HealthPage;
+
+    include "<?= $this->includeFastCgiConfPath ?>";
+}
+
+<? if (APPLICATION_PLATFORM != PLATFORM_PROD): ?>
+# просмотр текущих логов
+location ~ ^/log/([^\/]+)/$ {
+    fastcgi_pass <?= $this->fastcgi ?>;
+    fastcgi_param page Core\Logger\LogPage;
+    fastcgi_param args[file] $1;
+
+    include "<?= $this->includeFastCgiConfPath ?>";
+}
+<? endif; ?>

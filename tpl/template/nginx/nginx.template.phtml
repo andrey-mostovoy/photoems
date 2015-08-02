@@ -1,0 +1,17 @@
+<?php
+use Core\TemplateBuilder\Nginx\NginxTemplateBuilder;
+/** @var NginxTemplateBuilder $this */
+?>
+server {
+    <?php include $this->vhostPath; ?>
+}
+
+<?php if (false): ?>
+server {
+    <?php
+        include $this->includeSslPath;
+        $this->listen = 443;
+        include $this->vhostPath;
+    ?>
+}
+<?php endif; ?>

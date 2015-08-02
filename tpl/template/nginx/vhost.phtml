@@ -1,0 +1,38 @@
+<?php
+use Core\TemplateBuilder\Nginx\NginxTemplateBuilder;
+/** @var NginxTemplateBuilder $this */
+?>
+# этот конфиг инклудится из основного конфига
+# в 2х местах для http и https соединений в соответствующих секциях server
+
+listen <?= $this->listen ?>;
+server_name <?= implode(' ', $this->names) ?>;
+
+client_max_body_size 100m;
+set $user_ip $remote_addr;
+
+error_log <?= LOG_DIR ?>nginx.error.log;
+access_log <?= LOG_DIR ?>nginx.access.log;
+
+charset utf-8;
+
+set $_application_root          "<?= APPLICATION_ROOT ?>";
+set $_application_platform      "<?= APPLICATION_PLATFORM ?>";
+set $_application_mode          WEB;
+set $_application_server        <?= APPLICATION_SERVER ?>;
+set $_application_revision      <?= APPLICATION_REVISION ?>;
+set $_fastcgi_script_name       run_webpage.php;
+
+root $_application_root;
+
+include "<?= $this->includeNoCachePath ?>";
+
+<?php include $this->coreLocationPath; ?>
+
+location / {
+    fastcgi_pass <?= $this->fastcgi ?>;
+    fastcgi_param page App\MainLanding\MainLandingPage;
+
+    #include "<?= $this->includeNoCachePath ?>";
+    include "<?= $this->includeFastCgiConfPath ?>";
+}

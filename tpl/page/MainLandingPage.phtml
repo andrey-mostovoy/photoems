@@ -1,0 +1,84 @@
+<?php
+/**
+ * @author Andrey Mostovoy <stalk.4.me@gmail.com>
+ * @var stdClass $PageData данные для страницы.
+ */
+?>
+<div class="MainLandingPage">
+    <div class="header">
+        <div class="banner top">banner</div>
+    </div>
+    <div class="content">
+        <div class="column left">
+            <div class="banner left">banner</div>
+        </div>
+        <div class="column middle">
+            <?php if (isset($PageData->workUrl)): ?>
+                <div class="imageWrapper" style="background: url(<?= $PageData->workUrl ?>) no-repeat top center;"></div>
+                <div class="control">
+                    <div class="row">
+                        <div class="label">Фильтр</div>
+                        <div class="input">
+                            <select name="effect">
+                                <?php foreach($PageData->effects as $effectKey => $effectName): ?>
+                                    <option value="<?= $effectKey ?>"><?= $effectName ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row additionalWrapper colorizeWrapper">
+                        <div class="label">Цвет</div>
+                        <div class="input">
+                            <input type="text" class="color" name="colorize" value="" />
+                        </div>
+                    </div>
+                    <div class="row additionalWrapper gammaWrapper">
+                        <div class="label">Гамма-коррекция</div>
+                        <div class="input">
+                            <input type="text" name="gamma" value="" />
+                        </div>
+                    </div>
+                    <div class="row additionalWrapper blurWrapper">
+                        <div class="label">Размытие</div>
+                        <div class="input">
+                            <input type="text" name="blur" value="" />
+                        </div>
+                    </div>
+                    <div class="row button">
+                        <div class="input">
+                            <input type="button" class="js-set-image-effect" name="setImageEffect" value="Применить" />
+                        </div>
+                    </div>
+                    <div class="row total-button">
+                        <div class="input">
+                            <input type="button" class="js-change-image" name="changeImage" value="Изменить картинку" />
+                        </div>
+                        <div class="input">
+                            <input type="button" class="js-save-button" name="save" value="Сохранить" />
+                        </div>
+                    </div>
+                </div>
+            <?php else: ?>
+                <form id="upload" method="post" enctype="multipart/form-data">
+                    <div id="drop">
+                        Drop Here
+
+                        <a>Browse</a>
+                        <input type="file" name="upl" multiple />
+                    </div>
+
+                    <ul>
+                        <!-- загрузки будут показаны здесь -->
+                    </ul>
+
+                </form>
+            <?php endif; ?>
+        </div>
+        <div class="column right">
+            <div class="banner right">banner</div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="banner bottom">banner</div>
+    </div>
+</div>

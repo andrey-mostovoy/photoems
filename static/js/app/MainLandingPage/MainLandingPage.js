@@ -68,7 +68,7 @@ App.MainLandingPage.MainLandingPage.prototype.onSetImageEffect = function (event
             if (response.error) {
                 alert(response.error);
             } else {
-                $imageWrapper.css({backgroundImage: 'url(' + response.url + ')'})
+                jQuery('img', $imageWrapper).attr('src', response.url);
             }
             jQuery('.loader').remove();
         }
@@ -81,11 +81,11 @@ App.MainLandingPage.MainLandingPage.prototype.onSetImageEffect = function (event
  */
 App.MainLandingPage.MainLandingPage.prototype.setParams = function () {
     var $form = jQuery(event.target).parents('.control').eq(0),
-        $effect = $form.find('select[name=effect]'),
+        $effect = $form.find('.js-set-image-effect:checked'),
         effect = $effect.val(),
         $color = $form.find('input[name=colorize]'),
-        $gamma = $form.find('input[name=gamma]'),
-        $blur = $form.find('input[name=blur]');
+        $gamma = $form.find('select[name=gamma]'),
+        $blur = $form.find('select[name=blur]');
 
     if (!effect) {
         alert('effect has not chosen');

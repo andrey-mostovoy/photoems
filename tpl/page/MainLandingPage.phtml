@@ -1,0 +1,116 @@
+<?php
+/**
+ * @author Andrey Mostovoy <stalk.4.me@gmail.com>
+ * @var stdClass $PageData данные для страницы.
+ */
+?>
+<div class="MainLandingPage">
+    <div class="header">
+        <div class="banner top"><!-- top banner --></div>
+    </div>
+    <div class="content">
+        <div class="column left">
+            <div class="banner left"><!-- left banner --></div>
+        </div>
+        <div class="column middle">
+            <?php if (isset($PageData->workUrl)): ?>
+                <div class="imageWrapper">
+                    <img src="<?= $PageData->workUrl ?>" />
+                </div>
+                <div class="control">
+                    <div class="row">
+                        <div class="input change-image--wrap">
+                            <input type="button" class="js-change-image change-image" name="changeImage" value="Сменить картинку" />
+                        </div>
+                        <div class="input filters">
+<!--                            <select name="effect">-->
+<!--                            </select>-->
+                            <div class="label">Фильтр:</div>
+                            <?php foreach($PageData->effects as $effectKey => $effectName): ?>
+                                <label>
+                                    <input class="js-set-image-effect" name="effect" type="radio" value="<?= $effectKey ?>" <?= $effectKey == 'origin' ? 'checked="true"' : '' ?> />
+                                    <?= $effectName ?>
+                                </label>
+                                <?php if ($effectKey == 'blur') { ?>
+                                    <br/>
+                                    <select class="js-set-image-effect" name="blur">
+                                        <option value="1">1px</option>
+                                        <option value="2">2px</option>
+                                        <option value="3">3px</option>
+                                        <option value="4">4px</option>
+                                        <option value="5">5px</option>
+                                        <option value="6">6px</option>
+                                        <option value="7">7px</option>
+                                        <option value="8">8px</option>
+                                        <option value="9">9px</option>
+                                        <option value="10">10px</option>
+                                    </select>
+                                <?php } else if ($effectKey == 'gamma') { ?>
+                                    <br/>
+                                    <select class="js-set-image-effect" name="gamma">
+                                        <option value="0.1">0.1</option>
+                                        <option value="0.2">0.2</option>
+                                        <option value="0.3">0.3</option>
+                                        <option value="0.4">0.4</option>
+                                        <option value="0.5">0.5</option>
+                                        <option value="0.6">0.6</option>
+                                        <option value="0.7">0.7</option>
+                                        <option value="0.8">0.8</option>
+                                        <option value="0.9">0.9</option>
+                                    </select>
+                                <?php } else if ($effectKey == 'colorize') { ?>
+                                    <br/>
+                                    <input name="colorize" type="text" value="ffffff" />
+                                <?php } ?>
+                                <br/>
+                            <?php endforeach; ?>
+                            <div class="input">
+                                <input type="button" class="js-save-button download" name="save" value="Скачать" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row additionalWrapper colorizeWrapper">
+                        <div class="label">Цвет</div>
+                        <div class="input">
+                            <input type="text" class="color" name="colorize" value="" />
+                        </div>
+                    </div>
+                    <div class="row additionalWrapper gammaWrapper">
+                        <div class="label">Гамма-коррекция</div>
+                        <div class="input">
+                            <input type="text" name="gamma" value="" />
+                        </div>
+                    </div>
+                    <div class="row additionalWrapper blurWrapper">
+                        <div class="label">Размытие</div>
+                        <div class="input">
+                            <input type="text" name="blur" value="" />
+                        </div>
+                    </div>
+                </div>
+            <?php else: ?>
+                <form id="upload" method="post" enctype="multipart/form-data">
+                    <div id="drop">
+                        <span style="color: white; font-size: 18px;">Перетащите изображение</span>
+                        <br/>
+                        <span style="color: white; background-color: #a6a6a7; position: relative; top: .6em; padding: 0 10px;">или</span>
+                        <div style="width: 400px; margin: 0 auto 1em; border-bottom: 1px solid rgba(210, 210, 210, 0.55);"></div>
+                        <a>выберите</a>
+                        <input type="file" name="upl" multiple />
+                    </div>
+
+                    <ul>
+                        <!-- загрузки будут показаны здесь -->
+                    </ul>
+
+                </form>
+            <?php endif; ?>
+        </div>
+        <div class="column right">
+            <div class="banner right"><!-- right banner --></div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="banner bottom"><!-- bottom banner --></div>
+    </div>
+</div>

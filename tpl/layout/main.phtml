@@ -1,0 +1,30 @@
+<?php
+/**
+ * @var stdClass $PageData данные для страницы.
+ */
+?>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--        <script type="text/javascript" src="--><?//= JS_CORE_PATH ?><!--jquery-latest.js"></script>-->
+
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+        <script src="http://code.jquery.com/jquery-1.11.3.js"></script>
+        <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+        <script type="text/javascript" src="<?= JS_CORE_PATH ?>main.js"></script>
+        <?php
+            if (isset($PageData->header)) {
+                require_once ($PageData->header);
+            }
+        ?>
+    </head>
+    <body>
+        <?php require_once ($PageData->content); ?>
+        <script type="text/javascript">
+            Core.Data._data = jQuery.parseJSON('<?= $PageData->jsData; ?>');
+        </script>
+    </body>
+</html>

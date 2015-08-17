@@ -70,6 +70,7 @@ body {
 
 .imageWrapper .loader {
     background: url('/static/img/MainLanding/loader.gif') center center no-repeat;
+    position: absolute;
 }
 
 .control {

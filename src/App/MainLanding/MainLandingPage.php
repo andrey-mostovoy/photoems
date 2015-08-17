@@ -1,7 +1,6 @@
 <?php
 namespace App\MainLanding;
 
-use App\Image\CustomImage;
 use App\Image\CustomImagine;
 use App\Image\Image;
 use App\Image\Size;
@@ -166,7 +165,7 @@ class MainLandingPage extends AbstractWebPage {
         header('Cache-Control: public');
         header('Content-Description: File Transfer');
         header('Content-Disposition: attachment; filename=' . basename($imagePath));
-        header('Content-Type: ' . mime_content_type($imagePath));
+        header('Content-Type: image/jpeg');
         header('Content-Transfer-Encoding: binary');
         header('Content-Length: ' . filesize($imagePath));
 

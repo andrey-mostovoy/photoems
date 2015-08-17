@@ -1,12 +1,12 @@
 <?php
 namespace App\Image;
 
-use Imagine\Imagick\Image;
+use Imagine\Imagick\Image as ImagickImage;
 
 /**
  * @author Andrey Mostovoy <stalk.4.me@gmail.com>
  */
-class CustomImage extends Image {
+class CustomImage extends ImagickImage {
     /**
      * {@inheritdoc}
      */

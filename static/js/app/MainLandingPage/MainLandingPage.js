@@ -53,8 +53,11 @@ App.MainLandingPage.MainLandingPage.prototype.onSetImageEffect = function (event
 
     // ставим лоадер
     var $imageWrapper = jQuery('.imageWrapper'),
-        $loader = jQuery('<div/>').addClass('loader').css({height: $imageWrapper.height()});
-    $imageWrapper.append($loader);
+        $loader = jQuery('<div/>').addClass('loader').css({
+            height: $imageWrapper.height(),
+            width: $imageWrapper.width()
+        });
+    $imageWrapper.prepend($loader);
 
     jQuery.ajax({
         type: 'post',

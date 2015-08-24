@@ -76,7 +76,8 @@ abstract class AbstractWebPage {
      * @return string
      */
     protected final function getPageName() {
-        return end(explode('\\', get_called_class()));
+        $className = get_called_class();
+        return end(explode('\\', $className));
     }
 
     /**

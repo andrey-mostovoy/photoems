@@ -36,3 +36,7 @@ location / {
     #include "<?= $this->includeNoCachePath ?>";
     include "<?= $this->includeFastCgiConfPath ?>";
 }
+
+location /old-landing/ {
+    root "<?= HTML_DIR ?>";
+}

@@ -1,0 +1,9 @@
+<local "Local">
+<remote "Remote">
+<uploadPreferences "Upload Preferences">
+<uploadInfoFormats "JPG PNG BMP GIF">
+<uploadInfoMaxSize "MAX. 2 MB">
+<uploadFormTitle "browse for images you would like to upload from your computer">
+<imageResizing "image resizing">
+<imageResizingDescription "automatically resize your image">
+<upload "Upload">

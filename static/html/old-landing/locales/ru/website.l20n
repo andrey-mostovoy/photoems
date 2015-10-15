@@ -1,0 +1,9 @@
+<local "Локальный файл">
+<remote "Удалённый источник">
+<uploadPreferences "Настройки загрузки">
+<uploadInfoFormats "JPG PNG BMP GIF">
+<uploadInfoMaxSize "MAX. 2 MB">
+<uploadFormTitle "Просмотр картинок, которые вы хотите загрузить с вашего компьютера">
+<imageResizing "Изменение размера картинок">
+<imageResizingDescription "автоматически изменяет размер вашей картинки">
+<upload "Загрузить">

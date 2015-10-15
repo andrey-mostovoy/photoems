@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="localization" href="locales/config.json">
+
+    <script type="text/javascript" src="js/lib/l20n.min.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <header class="header">
+            <div class="header__banner" id="topBannerSpot"></div>
+            <div class="header__logo"></div>
+        </header>
+        <div class="main">
+            <div class="source-selector">
+                <div class="source-selector__button button_default button_selector source-selector__button_selected" data-l10n-id="local"></div><div class="source-selector__button button_default button_selector" data-l10n-id="remote"></div>
+            </div>
+            <div class="upload-preferences">
+                <div class="upload-preferences__info">
+                    <span data-l10n-id="uploadInfoFormats"></span>
+                    <span class="upload-preferences__info_max-size" data-l10n-id="uploadInfoMaxSize"></span>
+                </div>
+                <div class="upload-preferences__button button_default" data-l10n-id="uploadPreferences"></div>
+            </div>
+            <div class="upload-form">
+                <div class="upload-form__title" data-l10n-id="uploadFormTitle"></div>
+                <div class="upload-form__input-wrap">
+                    <input type="text" class="upload-form__input" />
+                </div>
+                <div class="upload-form__image-resizing">
+                    <div class="upload-form__image-resizing__button" data-l10n-id="imageResizing"></div>
+                    <span class="upload-form__image-resizing__description" data-l10n-id="imageResizingDescription"></span>
+                </div>
+                <div class="upload-form__button-wrap">
+                    <div class="upload-form__upload-button" data-l10n-id="upload"></div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="footer__banner" id="bottomBannerSpot"></div>
+        </footer>
+    </div>
+
+    <script type="text/javascript" src="js/lib/underscore-min.js"></script>
+    <script type="text/javascript" src="js/bannerRotationConfig.js"></script>
+    <script type="text/javascript" src="js/bannerRotation.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

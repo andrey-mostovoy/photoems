@@ -1,0 +1,178 @@
+body {
+    margin: 0;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 15px;
+    line-height: 120%;
+}
+
+.button_default {
+    border: 1px solid #B6B6B6;
+    text-shadow: 1px 1px 0 #FFF;
+    cursor: pointer;
+}
+
+.button_selector {
+    margin-right: -1px;
+    display: inline-block;
+}
+.button_selector:first-child {
+    border-radius: 5px 0 0 5px;
+}
+.button_selector:last-child {
+    margin-right: 0;
+    border-radius: 0 5px 5px 0;
+}
+
+.wrap {
+    text-align: center;
+}
+
+.header {
+    margin: 0 auto;
+}
+
+.header__banner {
+    width: 728px;
+    height: 90px;
+    background: no-repeat 0 0;
+}
+
+.header__logo {
+    width: 340px;
+    height: 90px;
+    background: url('../images/logo.png') no-repeat 0 center;
+}
+
+@media all and (min-width: 1052px) {
+    .header {
+        max-width: 1100px;
+        overflow: hidden;
+    }
+
+    .header__banner {
+        float: right;
+    }
+}
+
+@media all and (max-width: 1051px) {
+    .header {
+        width: 920px;
+    }
+
+    .header__banner {
+        margin: 0 auto;
+    }
+}
+
+.main {
+    margin: 37px auto;
+    width: 920px;
+}
+
+.source-selector {
+    margin-bottom: 5px;
+}
+
+.source-selector__button {
+    height: 25px;
+    padding: 0 15px;
+    font-family: "Lucida Sans","Lucida Sans Unicode","Lucida Grande",sans-serif;
+    font-size: 13px;
+    line-height: 25px;
+    color: #444;
+    background-color: #E9E9E9;
+}
+
+.source-selector__button_selected {
+    color: #000;
+    background-color: #E0E0E0;
+    cursor: default;
+}
+
+.upload-preferences {
+    text-align: left;
+}
+
+.upload-preferences__button {
+    padding: 0 10px;
+    display: inline-block;
+    font-size: 9px;
+    color: #222;
+    background-color: #E2E2E2;
+    border-radius: 1em;
+}
+
+.upload-preferences__info {
+    float: right;
+    font-size: 11px;
+    color: #CCC;
+}
+.upload-preferences__info_max-size {
+    margin-left: 5px;
+    color: #AAA;
+}
+
+.upload-form {
+    margin-top: 33px;
+    display: inline-block;
+}
+.upload-form__title {
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #BCBCBC;
+}
+.upload-form__input-wrap {
+    text-align: left;
+}
+.upload-form__input {
+    width: 362px;
+    height: 28px;
+    border: 1px solid #BBB;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.15);
+}
+.upload-form__image-resizing {
+    margin-top: 37px;
+    font-size: 12px;
+    line-height: 23px;
+}
+.upload-form__image-resizing__button {
+    margin-right: 8px;
+    height: 23px;
+    padding: 0 20px;
+    display: inline-block;
+    font-family: "Lucida Sans","Lucida Sans Unicode","Lucida Grande",sans-serif;
+    font-size: 13px;
+    color: #FFF;
+    background-color: #3579AB;
+    border-radius: 1em;
+    cursor: pointer;
+}
+.upload-form__image-resizing__description {
+    display: inline-block;
+}
+.upload-form__button-wrap {
+    margin-top: 60px;
+}
+.upload-form__upload-button {
+    min-width: 100px;
+    padding: 0 15px;
+    display: inline-block;
+    font-family: "Lucida Sans","Lucida Grande",Arial,Helvetica,sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 40px;
+    color: #fff;
+    background-color: #5A8627;
+    border: 1px solid #69992F;
+    border-radius: 5px;
+    text-shadow: 1px 1px 0 #5C8928;
+    cursor: pointer;
+}
+.footer__banner {
+    margin: 0 auto;
+    width: 728px;
+    height: 90px;
+    background: no-repeat 0 0;
+}

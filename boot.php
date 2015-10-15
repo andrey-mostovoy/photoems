@@ -66,6 +66,7 @@ define('JS_DIR', STATIC_DIR . 'js/');
 define('CSS_DIR', STATIC_DIR . 'css/');
 define('IMAGE_DIR', STATIC_DIR . 'img/');
 define('FONT_DIR', STATIC_DIR . 'font/');
+define('HTML_DIR', STATIC_DIR . 'html/');
 define('UPLOAD_DIR', ROOT_DIR . '../uploads/');
 define('LIB_DIR', ROOT_DIR . 'lib/');
 define('PEAR_DIR', LIB_DIR . 'Pear/');

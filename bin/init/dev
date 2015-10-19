@@ -3,5 +3,5 @@
 /usr/bin/env SHELL_MODE="script" \
 /usr/bin/env APPLICATION_PLATFORM="dev" \
 /usr/bin/env APPLICATION_REVISION=1 \
-/usr/bin/env APPLICATION_ROOT=`pwd` \
+/usr/bin/env APPLICATION_ROOT=`pwd`/ \
 php run_init.php "$@"

@@ -2,7 +2,6 @@ body {
     margin: 0;
     padding: 0;
     font-family: Tahoma, Arial, sans-serif;
-    background-color: lightgray;
 }
 
 .download {
@@ -57,6 +56,14 @@ body {
 
 .column.middle {
     margin: 0 30px;
+}
+
+.logo {
+    margin: 0 auto 15px;
+    width: 340px;
+    height: 90px;
+    background: url('/static/img/MainLanding/logo/2.png') no-repeat center -121px;
+    background-size: 517px auto;
 }
 
 .imageWrapper {

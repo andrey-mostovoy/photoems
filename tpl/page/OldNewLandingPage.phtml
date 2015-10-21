@@ -3,6 +3,7 @@
  * @author Andrey Mostovoy <stalk.4.me@gmail.com>
  * @var stdClass $PageData данные для страницы.
  */
+/* @todo Если будут общие правки с MainLandingPage, стоит сделать наследование */
 ?>
 <div class="MainLandingPage">
     <div class="header">
@@ -13,7 +14,6 @@
             <div class="sbn left js-sbn-left"><!-- left sbn --></div>
         </div>
         <div class="column middle">
-            <div class="logo"></div>
             <?php if (isset($PageData->workUrl)): ?>
                 <div class="imageWrapper">
                     <img src="<?= $PageData->workUrl ?>" />

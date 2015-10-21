@@ -37,6 +37,14 @@ location / {
     include "<?= $this->includeFastCgiConfPath ?>";
 }
 
+location /old-new-landing/ {
+    fastcgi_pass <?= $this->fastcgi ?>;
+    fastcgi_param page App\OldNewLanding\OldNewLandingPage;
+
+    #include "<?= $this->includeNoCachePath ?>";
+    include "<?= $this->includeFastCgiConfPath ?>";
+}
+
 location /old-landing/ {
     root "<?= HTML_DIR ?>";
 }

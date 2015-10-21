@@ -29,12 +29,13 @@ body {
 
 .header {
     margin: 0 auto;
+    width: 990px;
 }
 
 .header__banner {
-    width: 728px;
-    height: 90px;
-    background: no-repeat 0 0;
+    margin-bottom: 10px;
+    width: 990px;
+    height: 270px;
 }
 
 .header__logo {
@@ -43,7 +44,7 @@ body {
     background: url('../images/logo/2.png') no-repeat center -121px;
     background-size: 517px auto;
 }
-
+/*
 @media all and (min-width: 1052px) {
     .header {
         max-width: 1100px;
@@ -54,7 +55,7 @@ body {
         float: right;
     }
 }
-
+*/
 @media all and (max-width: 1051px) {
     .header {
         width: 920px;

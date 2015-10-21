@@ -40,7 +40,8 @@ body {
 .header__logo {
     width: 340px;
     height: 90px;
-    background: url('../images/logo.png') no-repeat 0 center;
+    background: url('../images/logo/2.png') no-repeat center -121px;
+    background-size: 517px auto;
 }
 
 @media all and (min-width: 1052px) {

@@ -10,6 +10,11 @@ jQuery(document).ready(function () {
         $body.delegate('select[name=effect]', 'change', jQuery.proxy(Page.onEffectSelectChange, Page));
         $body.delegate('.js-set-image-effect', 'click', jQuery.proxy(Page.onSetImageEffect, Page));
         $body.delegate('.js-change-image', 'click', jQuery.proxy(Page.onChangeImage, Page));
+        // @todo сделать обработчики
+        //$body.delegate('.js-resizing-radio', 'click', jQuery.proxy(Page.onChangeImage, Page));
+        //$body.delegate('.js-resizing-input-width', 'change', jQuery.proxy(Page.onChangeImage, Page));
+        //$body.delegate('.js-resizing-input-height', 'change', jQuery.proxy(Page.onChangeImage, Page));
+        //$body.delegate('.js-resizing-button', 'click', jQuery.proxy(Page.onChangeImage, Page));
     } else {
         bindUploadWidget();
     }

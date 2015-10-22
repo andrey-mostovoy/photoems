@@ -16,12 +16,6 @@ body {
     text-align: center;
 }
 
-.sbn.left,
-.sbn.right {
-    width: 240px;
-    height: 400px;
-}
-
 .header,
 .footer {
     text-align: center;
@@ -29,15 +23,20 @@ body {
 
 .sbn.top,
 .sbn.bottom {
-    width: 728px;
-    height: 90px;
     margin: 30px auto;
+}
+
+.MainLandingPage .sbn.top {
+    margin: 0 auto 30px;
+}
+
+.sbn.bottom {
+    display: none;
 }
 
 .content {
     margin: 0 auto;
     text-align: center;
-    white-space: nowrap;
 }
 
 .column {
@@ -48,10 +47,6 @@ body {
 .content .column {
     vertical-align: middle;
     text-align: center;
-}
- 
-.column.left, .column.right {
-    width: 240px;
 }
 
 .column.middle {
@@ -66,9 +61,29 @@ body {
     background-size: 517px auto;
 }
 
+.image-resizing {
+    float: left;
+    width: 230px;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: left;
+    line-height: 24px;
+}
+.image-resizing__setting {
+    padding-left: 6px;
+}
+.image-resizing__setting__change__size {
+    padding-left: 25px;
+}
+.image-resizing__setting__change__size__input {
+    width: 50px;
+}
+.image-resizing__button-wrap {
+    text-align: center;
+}
+
 .imageWrapper {
-    display: inline-block;
-    margin-right: 10px;
+    margin: 0 230px;
     width: 500px;
     min-height: 315px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
@@ -80,13 +95,11 @@ body {
 }
 
 .control {
-    /*display: inline-block;*/
-    padding: 10px 0;
-    vertical-align: top;
-    width: 195px
-    margin: auto;
     float: right;
-    margin-left: 20px;
+    width: 230px;
+    box-sizing: border-box;
+    padding: 0 20px;
+    vertical-align: top;
 }
 
 .control input {

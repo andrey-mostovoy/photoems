@@ -11,11 +11,43 @@ jQuery(document).ready(function() {
  * @constructor
  */
 App.Sbn.Sbn = function() {
-    this.TYPE_IMG = 'img';
-    this.TYPE_FLASH = 'swf';
     this.IMAGE_PATH = '/static/img/sbn/';
     this.FLASH_PATH = '/static/swf/sbn/';
-    this.collection = {
+    this.collection = App.Sbn.BannerConfig.collection;
+    this.places = App.Sbn.BannerConfig.places;
+
+    for (var i in this.places) {
+        if (!this.places.hasOwnProperty(i)) {
+            continue;
+        }
+
+        var size = this.places[i],
+            chosen = this.choose(this.collection[size]);
+
+        this.collection[size].splice(chosen.index, 1);
+        var $sbn = this.makeSbnHtmlItem(chosen.item);
+
+        jQuery('.js-sbn-' + i).html($sbn);
+    }
+};
+
+App.Sbn.BannerTypes = {
+    IMG: 'img',
+    FLASH: 'swf',
+    IFRAME: 'iframe'
+};
+
+App.Sbn.BannerConfig = {
+    collection: { },
+    places: { }
+
+    /*
+    Пример конфига
+
+    collection: {
+        s990_270: [
+            { type: this.TYPE_IFRAME, url: '//topface.com/reg-banner/' }
+        ],
         s728_90: [
             {type: this.TYPE_IMG, file: '2-1.jpg', click: '//topface.com'},
             {type: this.TYPE_IMG, file: '2-2.jpg', click: '//topface.com'},
@@ -34,26 +66,22 @@ App.Sbn.Sbn = function() {
             {type: this.TYPE_IMG, file: '4-3.jpg', click: '//topface.com'}
         ]
     };
-    this.places = {
-        top: 's728_90',
-        bottom: 's728_90',
+    places: {
+        top: 's990_270',
+        //bottom: 's728_90',
         left: 's240_400',
         right: 's240_400'
     };
+    */
+};
 
-    for (var i in this.places) {
-        if (!this.places.hasOwnProperty(i)) {
-            continue;
-        }
-
-        var size = this.places[i],
-            chosen = this.choose(this.collection[size]);
-
-        this.collection[size].splice(chosen.index, 1);
-        var $sbn = this.makeSbnHtmlItem(chosen.item);
-
-        jQuery('.js-sbn-' + i).html($sbn);
-    }
+/**
+ * Устанавливаем конфиг баннеров
+ * @param config
+ * @see App.Sbn.BannerConfig
+ */
+App.Sbn.setBannerConfig = function(config) {
+    App.Sbn.BannerConfig = config;
 };
 
 /**
@@ -79,7 +107,7 @@ App.Sbn.Sbn.prototype.choose = function(collection) {
  * @returns {*}
  */
 App.Sbn.Sbn.prototype.makeSbnHtmlItem = function(SbnItem) {
-    if (SbnItem.type == this.TYPE_IMG) {
+    if (SbnItem.type == App.Sbn.BannerTypes.IMG) {
         var $img = jQuery('<img/>').attr('src', this.IMAGE_PATH + SbnItem.file),
             $a = jQuery('<a/>').attr('href', SbnItem.click).attr('target', '_blank');
 
@@ -88,7 +116,16 @@ App.Sbn.Sbn.prototype.makeSbnHtmlItem = function(SbnItem) {
         return $a;
     }
 
-    if (SbnItem.type == this.TYPE_FLASH) {
+    if (SbnItem.type == App.Sbn.BannerTypes.FLASH) {
 
+    }
+
+    if (SbnItem.type == App.Sbn.BannerTypes.IFRAME) {
+        var iframe = document.createElement('iframe');
+        iframe.frameBorder = 0;
+        iframe.width = 990;
+        iframe.height = 270;
+        iframe.src = SbnItem.url;
+        return iframe;
     }
 };

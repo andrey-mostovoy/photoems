@@ -15,6 +15,9 @@
         <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
         <script type="text/javascript" src="<?= JS_CORE_PATH ?>main.js"></script>
+        <script type="text/javascript">
+            Core.Data._data = jQuery.parseJSON('<?= $PageData->jsData; ?>');
+        </script>
         <?php
             if (isset($PageData->header)) {
                 require_once ($PageData->header);
@@ -23,8 +26,5 @@
     </head>
     <body>
         <?php require_once ($PageData->content); ?>
-        <script type="text/javascript">
-            Core.Data._data = jQuery.parseJSON('<?= $PageData->jsData; ?>');
-        </script>
     </body>
 </html>

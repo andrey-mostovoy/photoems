@@ -150,6 +150,8 @@ class MainLandingPage extends AbstractWebPage {
         $id = $_GET['download'];
         $effect = $_GET['effect'];
         $additional = $_GET['additional'];
+        $width = $_GET['width'] ?: 0;
+        $height = $_GET['height'] ?: 0;
 
         $imagePath = Image::getOriginalFile($id);
         $previewPath = Image::getPreviewFile($id);
@@ -159,6 +161,10 @@ class MainLandingPage extends AbstractWebPage {
         $Image = $Imagine->open($imagePath);
 
         $this->applyEffect($Image, $effect, $additional);
+
+        if ($width && $height) {
+            $Image->resize(new Box($width, $height));
+        }
 
         $Image->save(Image::getOriginalFile($id));
 
